@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="r6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Detailorder">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="int" />
+          <Property Name="menuid" Type="int" />
+          <Property Name="qty" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="handphone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Headorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="int" Nullable="false" />
+          <Property Name="employeeid" Type="int" />
+          <Property Name="memberid" Type="int" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="payment" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bank" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="handphone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="joindate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menuid" />
+          </Key>
+          <Property Name="menuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Detailord__menui__2F10007B">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Detailorder" Type="Self.Detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="menuid" />
+            </Principal>
+            <Dependent Role="Detailorder">
+              <PropertyRef Name="menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detailord__order__2E1BDC42">
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="0..1" />
+          <End Role="Detailorder" Type="Self.Detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Headorder">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="Detailorder">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Headorder__emplo__2A4B4B5E">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employeeid" />
+            </Principal>
+            <Dependent Role="Headorder">
+              <PropertyRef Name="employeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Headorder__membe__2B3F6F97">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="Headorder">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="r6ModelStoreContainer">
+          <EntitySet Name="Detailorder" EntityType="Self.Detailorder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Headorder" EntityType="Self.Headorder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Detailord__menui__2F10007B" Association="Self.FK__Detailord__menui__2F10007B">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Detailorder" EntitySet="Detailorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detailord__order__2E1BDC42" Association="Self.FK__Detailord__order__2E1BDC42">
+            <End Role="Headorder" EntitySet="Headorder" />
+            <End Role="Detailorder" EntitySet="Detailorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Headorder__emplo__2A4B4B5E" Association="Self.FK__Headorder__emplo__2A4B4B5E">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Headorder" EntitySet="Headorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Headorder__membe__2B3F6F97" Association="Self.FK__Headorder__membe__2B3F6F97">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Headorder" EntitySet="Headorder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="r6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Detailorder">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int32" />
+          <Property Name="menuid" Type="Int32" />
+          <Property Name="qty" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Detailord__menui__2F10007B" FromRole="Detailorder" ToRole="Menu" />
+          <NavigationProperty Name="Headorder" Relationship="Self.FK__Detailord__order__2E1BDC42" FromRole="Detailorder" ToRole="Headorder" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="handphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Headorders" Relationship="Self.FK__Headorder__emplo__2A4B4B5E" FromRole="Employee" ToRole="Headorder" />
+        </EntityType>
+        <EntityType Name="Headorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <Property Name="employeeid" Type="Int32" />
+          <Property Name="memberid" Type="Int32" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Detailorders" Relationship="Self.FK__Detailord__order__2E1BDC42" FromRole="Headorder" ToRole="Detailorder" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Headorder__emplo__2A4B4B5E" FromRole="Headorder" ToRole="Employee" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Headorder__membe__2B3F6F97" FromRole="Headorder" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="handphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Headorders" Relationship="Self.FK__Headorder__membe__2B3F6F97" FromRole="Member" ToRole="Headorder" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menuid" />
+          </Key>
+          <Property Name="menuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Detailorders" Relationship="Self.FK__Detailord__menui__2F10007B" FromRole="Menu" ToRole="Detailorder" />
+        </EntityType>
+        <Association Name="FK__Detailord__menui__2F10007B">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Detailorder" Type="Self.Detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="menuid" />
+            </Principal>
+            <Dependent Role="Detailorder">
+              <PropertyRef Name="menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detailord__order__2E1BDC42">
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="0..1" />
+          <End Role="Detailorder" Type="Self.Detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Headorder">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="Detailorder">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Headorder__emplo__2A4B4B5E">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employeeid" />
+            </Principal>
+            <Dependent Role="Headorder">
+              <PropertyRef Name="employeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Headorder__membe__2B3F6F97">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Headorder" Type="Self.Headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="Headorder">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="r6Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Detailorders" EntityType="Self.Detailorder" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Headorders" EntityType="Self.Headorder" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <AssociationSet Name="FK__Detailord__menui__2F10007B" Association="Self.FK__Detailord__menui__2F10007B">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Detailorder" EntitySet="Detailorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detailord__order__2E1BDC42" Association="Self.FK__Detailord__order__2E1BDC42">
+            <End Role="Headorder" EntitySet="Headorders" />
+            <End Role="Detailorder" EntitySet="Detailorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Headorder__emplo__2A4B4B5E" Association="Self.FK__Headorder__emplo__2A4B4B5E">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Headorder" EntitySet="Headorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Headorder__membe__2B3F6F97" Association="Self.FK__Headorder__membe__2B3F6F97">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Headorder" EntitySet="Headorders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="r6ModelStoreContainer" CdmEntityContainer="r6Entities">
+          <EntitySetMapping Name="Detailorders">
+            <EntityTypeMapping TypeName="r6Model.Detailorder">
+              <MappingFragment StoreEntitySet="Detailorder">
+                <ScalarProperty Name="detailid" ColumnName="detailid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="r6Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Headorders">
+            <EntityTypeMapping TypeName="r6Model.Headorder">
+              <MappingFragment StoreEntitySet="Headorder">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="payment" ColumnName="payment" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="r6Model.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="joindate" ColumnName="joindate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="r6Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

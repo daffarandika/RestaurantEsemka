@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a76e2ba298045168037746014aa6490" Name="Diagram1">
+        <EntityTypeShape EntityType="r6Model.Detailorder" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="r6Model.Employee" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="r6Model.Headorder" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="r6Model.Member" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="r6Model.Menu" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="r6Model.FK__Detailord__menui__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="r6Model.FK__Detailord__order__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="r6Model.FK__Headorder__emplo__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="r6Model.FK__Headorder__membe__2B3F6F97" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

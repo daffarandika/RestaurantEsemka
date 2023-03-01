@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C91C174D-19A7-4A4A-8061-97890E6BC87F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>r6</RootNamespace>
+    <AssemblyName>r6</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CashierNav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierNav.Designer.cs">
+      <DependentUpon>CashierNav.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashUC.Designer.cs">
+      <DependentUpon>CashUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePasswordUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordUC.Designer.cs">
+      <DependentUpon>ChangePasswordUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChefNav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChefNav.Designer.cs">
+      <DependentUpon>ChefNav.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detailorder.cs">
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminNav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminNav.Designer.cs">
+      <DependentUpon>AdminNav.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUC.Designer.cs">
+      <DependentUpon>EmployeeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Headorder.cs">
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NonCash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NonCash.Designer.cs">
+      <DependentUpon>NonCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderUC.Designer.cs">
+      <DependentUpon>OrderUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaymentUC.Designer.cs">
+      <DependentUpon>PaymentUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreorderForm.Designer.cs">
+      <DependentUpon>PreorderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportUC.Designer.cs">
+      <DependentUpon>ReportUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Ext.cs" />
+    <Compile Include="Utils\Guard.cs" />
+    <Compile Include="Utils\Helper.cs" />
+    <Compile Include="Member.cs">
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MemberUC.Designer.cs">
+      <DependentUpon>MemberUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuUC.Designer.cs">
+      <DependentUpon>MenuUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="r6DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>r6DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Vars.cs" />
+    <Compile Include="VOrderUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VOrderUC.Designer.cs">
+      <DependentUpon>VOrderUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminNav.resx">
+      <DependentUpon>AdminNav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierNav.resx">
+      <DependentUpon>CashierNav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashUC.resx">
+      <DependentUpon>CashUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordUC.resx">
+      <DependentUpon>ChangePasswordUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChefNav.resx">
+      <DependentUpon>ChefNav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUC.resx">
+      <DependentUpon>EmployeeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberUC.resx">
+      <DependentUpon>MemberUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUC.resx">
+      <DependentUpon>MenuUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NonCash.resx">
+      <DependentUpon>NonCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderUC.resx">
+      <DependentUpon>OrderUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentUC.resx">
+      <DependentUpon>PaymentUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreorderForm.resx">
+      <DependentUpon>PreorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportUC.resx">
+      <DependentUpon>ReportUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VOrderUC.resx">
+      <DependentUpon>VOrderUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="RestaurantEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RestaurantEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="r6DataSet.xsc">
+      <DependentUpon>r6DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="r6DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>r6DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="r6DataSet.xss">
+      <DependentUpon>r6DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantEntity.edmx.diagram">
+      <DependentUpon>RestaurantEntity.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RestaurantEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RestaurantEntity.Context.cs</LastGenOutput>
+      <DependentUpon>RestaurantEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="RestaurantEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RestaurantEntity.edmx</DependentUpon>
+      <LastGenOutput>RestaurantEntity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
