@@ -116,5 +116,10 @@ namespace r6
             FillDGV();
             Helper.Clear(clearableInputField);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            employeeDataGridView.GenerateExcelFile($"List of employees {DateTime.Now.ToString("yyyy-MM-dd")}");
+        }
     }
 }

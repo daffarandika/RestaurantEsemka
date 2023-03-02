@@ -50,6 +50,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             employeeidLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
@@ -58,6 +59,60 @@
             positionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // employeeidLabel
+            // 
+            employeeidLabel.AutoSize = true;
+            employeeidLabel.Location = new System.Drawing.Point(199, 276);
+            employeeidLabel.Name = "employeeidLabel";
+            employeeidLabel.Size = new System.Drawing.Size(63, 13);
+            employeeidLabel.TabIndex = 2;
+            employeeidLabel.Text = "employeeid:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(199, 302);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(36, 13);
+            nameLabel.TabIndex = 4;
+            nameLabel.Text = "name:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(199, 328);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(34, 13);
+            emailLabel.TabIndex = 6;
+            emailLabel.Text = "email:";
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Location = new System.Drawing.Point(199, 354);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(55, 13);
+            passwordLabel.TabIndex = 8;
+            passwordLabel.Text = "password:";
+            // 
+            // handphoneLabel
+            // 
+            handphoneLabel.AutoSize = true;
+            handphoneLabel.Location = new System.Drawing.Point(199, 380);
+            handphoneLabel.Name = "handphoneLabel";
+            handphoneLabel.Size = new System.Drawing.Size(64, 13);
+            handphoneLabel.TabIndex = 10;
+            handphoneLabel.Text = "handphone:";
+            // 
+            // positionLabel
+            // 
+            positionLabel.AutoSize = true;
+            positionLabel.Location = new System.Drawing.Point(199, 406);
+            positionLabel.Name = "positionLabel";
+            positionLabel.Size = new System.Drawing.Size(46, 13);
+            positionLabel.TabIndex = 12;
+            positionLabel.Text = "position:";
             // 
             // employeeidDataGridViewTextBoxColumn
             // 
@@ -105,30 +160,12 @@
             this.employeeDataGridView.TabIndex = 1;
             this.employeeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellClick);
             // 
-            // employeeidLabel
-            // 
-            employeeidLabel.AutoSize = true;
-            employeeidLabel.Location = new System.Drawing.Point(199, 276);
-            employeeidLabel.Name = "employeeidLabel";
-            employeeidLabel.Size = new System.Drawing.Size(63, 13);
-            employeeidLabel.TabIndex = 2;
-            employeeidLabel.Text = "employeeid:";
-            // 
             // employeeidTextBox
             // 
             this.employeeidTextBox.Location = new System.Drawing.Point(269, 273);
             this.employeeidTextBox.Name = "employeeidTextBox";
             this.employeeidTextBox.Size = new System.Drawing.Size(256, 20);
             this.employeeidTextBox.TabIndex = 3;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(199, 302);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(36, 13);
-            nameLabel.TabIndex = 4;
-            nameLabel.Text = "name:";
             // 
             // nameTextBox
             // 
@@ -137,30 +174,12 @@
             this.nameTextBox.Size = new System.Drawing.Size(256, 20);
             this.nameTextBox.TabIndex = 5;
             // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(199, 328);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(34, 13);
-            emailLabel.TabIndex = 6;
-            emailLabel.Text = "email:";
-            // 
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(269, 325);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(256, 20);
             this.emailTextBox.TabIndex = 7;
-            // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(199, 354);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(55, 13);
-            passwordLabel.TabIndex = 8;
-            passwordLabel.Text = "password:";
             // 
             // passwordTextBox
             // 
@@ -169,30 +188,12 @@
             this.passwordTextBox.Size = new System.Drawing.Size(256, 20);
             this.passwordTextBox.TabIndex = 9;
             // 
-            // handphoneLabel
-            // 
-            handphoneLabel.AutoSize = true;
-            handphoneLabel.Location = new System.Drawing.Point(199, 380);
-            handphoneLabel.Name = "handphoneLabel";
-            handphoneLabel.Size = new System.Drawing.Size(64, 13);
-            handphoneLabel.TabIndex = 10;
-            handphoneLabel.Text = "handphone:";
-            // 
             // handphoneTextBox
             // 
             this.handphoneTextBox.Location = new System.Drawing.Point(269, 377);
             this.handphoneTextBox.Name = "handphoneTextBox";
             this.handphoneTextBox.Size = new System.Drawing.Size(256, 20);
             this.handphoneTextBox.TabIndex = 11;
-            // 
-            // positionLabel
-            // 
-            positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(199, 406);
-            positionLabel.Name = "positionLabel";
-            positionLabel.Size = new System.Drawing.Size(46, 13);
-            positionLabel.TabIndex = 12;
-            positionLabel.Text = "position:";
             // 
             // positionComboBox
             // 
@@ -232,10 +233,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(661, 276);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "Generate Excel";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // EmployeeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
     }
 }

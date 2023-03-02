@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,13 +44,14 @@ namespace r6
             dataGridView1.DataSource = dt.AsEnumerable().Select(d => new
             {
                 Month = new DateTime(DateTime.Now.Year, d.Field<int>("month"), 1).ToString("MMMM"),
-                Income = d.Field<int>("Income"),
+                Income = d.Field<int>("Income").ToString("C", CultureInfo.GetCultureInfo("id-ID")),
             }).ToList();
             dataGridView1.Setup();
             chart1.Series.Add("Income");
+            chart1.Titles.Add("Income in millions");
             foreach(DataRow row in dt.Rows)
             {
-                chart1.Series["Income"].Points.AddXY(new DateTime(DateTime.Now.Year, Convert.ToInt32(row["month"]), 1).ToString("MMMM"), row["income"]);
+                chart1.Series["Income"].Points.AddXY(new DateTime(DateTime.Now.Year, Convert.ToInt32(row["month"]), 1).ToString("MMMM"), Convert.ToInt32(row["income"]) / 1_000_000);
             }
 
         }

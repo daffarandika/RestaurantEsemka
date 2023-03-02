@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -75,7 +76,7 @@ namespace r6
             {
                 total += Convert.ToInt32(row.Cells["total"].Value);
             }
-            lblTotal.Text = $"Total: {total}";
+            lblTotal.Text = $"Total: {total.ToString("C", CultureInfo.GetCultureInfo("id-ID"))}";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -117,6 +118,7 @@ namespace r6
             {
                 qtyTextBox, nameTextBox, priceTextBox, orderDataGridView, menuDataGridView, pictureBox1
             });
+            lblTotal.Text = "Total: Rp 0";
         }
     }
 }

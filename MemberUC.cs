@@ -106,5 +106,10 @@ namespace r6
             emailTextBox.Text = row.Cells["email"].Value.ToString();
             handphoneTextBox.Text = row.Cells["handphone"].Value.ToString();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            memberDataGridView.GenerateExcelFile($"List Of Members {DateTime.Now.ToString("yyyy-MM-dd")}");
+        }
     }
 }

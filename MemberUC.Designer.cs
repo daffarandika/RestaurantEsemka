@@ -40,21 +40,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             memberidLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             handphoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.memberDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // memberDataGridView
-            // 
-            this.memberDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.memberDataGridView.Location = new System.Drawing.Point(29, 36);
-            this.memberDataGridView.Name = "memberDataGridView";
-            this.memberDataGridView.Size = new System.Drawing.Size(750, 231);
-            this.memberDataGridView.TabIndex = 1;
-            this.memberDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberDataGridView_CellClick);
             // 
             // memberidLabel
             // 
@@ -65,13 +57,6 @@
             memberidLabel.TabIndex = 2;
             memberidLabel.Text = "memberid:";
             // 
-            // memberidTextBox
-            // 
-            this.memberidTextBox.Location = new System.Drawing.Point(307, 282);
-            this.memberidTextBox.Name = "memberidTextBox";
-            this.memberidTextBox.Size = new System.Drawing.Size(200, 20);
-            this.memberidTextBox.TabIndex = 3;
-            // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
@@ -80,13 +65,6 @@
             nameLabel.Size = new System.Drawing.Size(36, 13);
             nameLabel.TabIndex = 4;
             nameLabel.Text = "name:";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(307, 308);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nameTextBox.TabIndex = 5;
             // 
             // emailLabel
             // 
@@ -97,13 +75,6 @@
             emailLabel.TabIndex = 6;
             emailLabel.Text = "email:";
             // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(307, 334);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(200, 20);
-            this.emailTextBox.TabIndex = 7;
-            // 
             // handphoneLabel
             // 
             handphoneLabel.AutoSize = true;
@@ -112,6 +83,36 @@
             handphoneLabel.Size = new System.Drawing.Size(64, 13);
             handphoneLabel.TabIndex = 8;
             handphoneLabel.Text = "handphone:";
+            // 
+            // memberDataGridView
+            // 
+            this.memberDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.memberDataGridView.Location = new System.Drawing.Point(29, 36);
+            this.memberDataGridView.Name = "memberDataGridView";
+            this.memberDataGridView.Size = new System.Drawing.Size(750, 231);
+            this.memberDataGridView.TabIndex = 1;
+            this.memberDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberDataGridView_CellClick);
+            // 
+            // memberidTextBox
+            // 
+            this.memberidTextBox.Location = new System.Drawing.Point(307, 282);
+            this.memberidTextBox.Name = "memberidTextBox";
+            this.memberidTextBox.Size = new System.Drawing.Size(200, 20);
+            this.memberidTextBox.TabIndex = 3;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(307, 308);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.nameTextBox.TabIndex = 5;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(307, 334);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(200, 20);
+            this.emailTextBox.TabIndex = 7;
             // 
             // handphoneTextBox
             // 
@@ -150,10 +151,21 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(669, 285);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Generate Excel";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // MemberUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

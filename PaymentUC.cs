@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace r6
             {
                 total += Convert.ToInt32(row.Cells["total"].Value);
             }
-            lblTotal.Text = $"Total: {total}";
+            lblTotal.Text = $"Total: {total.ToString("C", CultureInfo.GetCultureInfo("id-ID"))}";
         }
 
         private void paymentComboBox_SelectedIndexChanged(object sender, EventArgs e)

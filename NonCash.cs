@@ -25,6 +25,7 @@ namespace r6
 
         private void button1_Click(object sender, EventArgs e)
         {
+            new RecieptForm(orderid).ShowDialog();
             if (Guard.FailsAgainstNull(new Control[] {textBox1, bankComboBox}))
             {
                 Helper.ShowError("Inputs cannot be empty");

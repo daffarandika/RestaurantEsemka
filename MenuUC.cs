@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -132,6 +133,11 @@ namespace r6
             Helper.RunQuery("delete from menu where menuid = '" + menuid + "'");
             Helper.Clear(clearableInputField);
             FillDGV();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            menuDataGridView.GenerateExcelFile($"List of menus {DateTime.Now.ToString("yyyy-MM-dd")}");
         }
     }
 }
